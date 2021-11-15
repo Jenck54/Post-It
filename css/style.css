@@ -1,0 +1,49 @@
+body {
+    background-color: slateblue;
+}
+.conteneur {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    width: 20%;
+    padding-bottom: 20px;
+}
+.contenant {
+    margin-left: 50px;
+}
+.titre {
+    margin-left: 10px;
+    color: white;
+}
+.post1 {
+    width: 250px;
+    height: 250px;
+    background-color: red;
+    border: 1px solid transparent;
+    border-radius:10px;
+}
+.post2 {
+    width: 250px;
+    height: 250px;
+    background-color: blue;
+    border: 1px solid transparent;
+    border-radius:10px;
+    margin-top: 20px;
+}
+.post3 {
+    width: 250px;
+    height: 250px;
+    background-color: yellow;
+    border: 1px solid transparent;
+    border-radius:10px;
+    margin-top: 20px;
+}
+.menu {
+    position:absolute;
+    bottom: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
