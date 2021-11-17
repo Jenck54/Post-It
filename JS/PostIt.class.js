@@ -12,12 +12,12 @@ class PostIt {
      * Le changement de la couleur du post-it
      * Le texte qui sera rentrer dans le post-it
      * Le numero du post-it
-     * @param  {number} x
-     * @param  {number} y
-     * @param  {number} largeur
-     * @param  {number} hauteur
-     * @param  {string} couleur
-     * @param  {string} texte
+     * @param  {number} x L'abscisse
+     * @param  {number} y L'ordonnee
+     * @param  {number} largeur La largeur de l'element
+     * @param  {number} hauteur La hauteur de l'element
+     * @param  {string} couleur La couleur du post-it
+     * @param  {string} texte Le texte rentrer dans le post-it
      * @param  {number} id
      */
     constructor(x, y, largeur, hauteur, couleur, texte, id) {
@@ -31,8 +31,8 @@ class PostIt {
     }
     /**
      * X est horizontal et Y est vertical par rapport a en haut a gauche de la fenetre
-     * @param  {number} x
-     * @param  {number} y
+     * @param  {number} x L'abscisse
+     * @param  {number} y L'ordonnee
      */
     deplacement(x, y) {
         this.x=x;
@@ -40,8 +40,8 @@ class PostIt {
     }
     /**
      * La largeur et la hauteur de l'element
-     * @param  {number} largeur
-     * @param  {number} hauteur
+     * @param  {number} largeur La largeur de l'element
+     * @param  {number} hauteur La hauteur de l'element
      */
     redimensionnement(largeur, hauteur) {
         this.largeur=largeur;
