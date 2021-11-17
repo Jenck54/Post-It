@@ -6,7 +6,20 @@ class PostIt {
     couleur;
     texte;
     id;
-
+    /**
+     * X est horizontal (abscisse) et Y est vertical (ordonnee) par rapport a en haut a gauche de la fenetre
+     * La largeur et la hauteur de l'element
+     * Le changement de la couleur du post-it
+     * Le texte qui sera rentrer dans le post-it
+     * Le numero du post-it
+     * @param  {number} x
+     * @param  {number} y
+     * @param  {number} largeur
+     * @param  {number} hauteur
+     * @param  {string} couleur
+     * @param  {string} texte
+     * @param  {number} id
+     */
     constructor(x, y, largeur, hauteur, couleur, texte, id) {
         this.x=x;
         this.y=y;
@@ -16,20 +29,41 @@ class PostIt {
         this.texte=texte;
         this.id=id;
     }
+    /**
+     * X est horizontal et Y est vertical par rapport a en haut a gauche de la fenetre
+     * @param  {number} x
+     * @param  {number} y
+     */
     deplacement(x, y) {
         this.x=x;
         this.y=y;
     }
+    /**
+     * La largeur et la hauteur de l'element
+     * @param  {number} largeur
+     * @param  {number} hauteur
+     */
     redimensionnement(largeur, hauteur) {
         this.largeur=largeur;
         this.hauteur=hauteur;
     }
+    /**
+     * Le texte qui sera rentrer dans le post-it
+     * @param  {string} texte
+     */
     changementText(texte) {
         this.texte=texte;
     }
+    /**
+     * Le changement de la couleur du post-it
+     * @param  {string} couleur
+     */
     changerCouleur(couleur) {
         this.couleur=couleur;
     }
+    /**
+     * Fonction qui permet d'afficher le post-it ainsi que ses boutons
+     */
     affichePostIt() {
         let elem=document.getElementById("PostIt"+this.id)
         if(elem==null) {
@@ -107,7 +141,8 @@ class PostIt {
         btn5.className = "fas fa-trash-alt"
         menu.appendChild(btn5)
         btn5.addEventListener("click", (evt)=>{
-            
+            elem.parentNode.removeChild(elem)
+            supprimer(this.id)
         })
     }
 }

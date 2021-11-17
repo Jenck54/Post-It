@@ -71,3 +71,10 @@ document.body.addEventListener("click",()=>{
     numPostIt=-1
     action = ""
 })
+/**
+ * Fonction qui supprime un post-it du tableau
+ * @param  {number} numPostIt
+ */
+function supprimer(numPostIt) {
+    tablePostIt.splice(numPostIt ,1)
+}
