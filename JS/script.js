@@ -78,3 +78,40 @@ document.body.addEventListener("click",()=>{
 function supprimer(numPostIt) {
     tablePostIt.splice(numPostIt ,1)
 }
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+function eraseCookie(name) {
+	createCookie(name,"",-1);
+}
+setInterval(()=> {
+    let textPostIt = JSON.stringify(tablePostIt)
+    createCookie("cookie",textPostIt,365)
+},1000)
+window.addEventListener("load", ()=> {
+    let textcookie = readCookie("cookie")
+    let tablecookie = JSON.parse(textcookie)
+    for (let index = 0; index < tablecookie.length; index++) {
+        tablePostIt.push(new PostIt(tablecookie[index].x,tablecookie[index].y,tablecookie[index].largeur,tablecookie[index].hauteur,tablecookie[index].couleur,tablecookie[index].texte,tablePostIt.length))
+        tablePostIt[tablePostIt.length-1].affichePostIt()
+        console.log(tablecookie)
+    }
+})
